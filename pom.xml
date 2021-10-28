@@ -11,6 +11,7 @@
 
     <properties>
         <spring-boot-dependencies.version>2.1.18.RELEASE</spring-boot-dependencies.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- please do not update these versions
              they are not in spring boot  -->
