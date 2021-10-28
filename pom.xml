@@ -57,7 +57,7 @@
                             <archive>
                                 <manifest>
                                     <addClasspath>false</addClasspath>
-                                    <mainClass>com.codenjoy.dojo.ScalaRunner</mainClass>
+                                    <mainClass>com.codenjoy.dojo.KotlinRunner</mainClass>
                                 </manifest>
                             </archive>
                             <descriptorRefs>
@@ -136,7 +136,6 @@
                         <configuration>
                             <sourceDirs>
                                 <sourceDir>${project.basedir}/src/main/kotlin</sourceDir>
-                                <sourceDir>${project.basedir}/src/main/java</sourceDir>
                             </sourceDirs>
                         </configuration>
                     </execution>
@@ -149,7 +148,6 @@
                         <configuration>
                             <sourceDirs>
                                 <sourceDir>${project.basedir}/test/main/kotlin</sourceDir>
-                                <sourceDir>${project.basedir}/test/main/java</sourceDir>
                             </sourceDirs>
                         </configuration>
                     </execution>
