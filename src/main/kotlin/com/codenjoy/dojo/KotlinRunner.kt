@@ -1,3 +1,5 @@
+package com.codenjoy.dojo
+
 /*-
  * #%L
  * Codenjoy - it's a dojo-like platform from developers to developers.
@@ -19,7 +21,6 @@
  * <http://www.gnu.org/licenses/gpl-3.0.html>.
  * #L%
  */
-package com.codenjoy.dojo
 
 import com.codenjoy.dojo.client.WebSocketRunner
 import com.codenjoy.dojo.client.runner.ReflectLoader.loadKotlinBoard
