@@ -52,6 +52,6 @@ class YourSolverKotlin(dice: Dice) : Solver<BoardKotlin> {
 
         // TODO put your logic here
 
-        return Direction.ACT.toString()
+        return Direction.RIGHT.toString()
     }
 }
