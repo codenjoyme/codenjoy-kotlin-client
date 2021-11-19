@@ -1,7 +1,7 @@
 call 0-settings.bat
 
 echo off
-call lib :color Starting java client...
+call lib :color Starting kotlin client...
 echo on
 
 rem run jar

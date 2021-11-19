@@ -1,7 +1,7 @@
 call 0-settings.bat
 
 echo off
-call lib :color Installing java...
+call lib :color Installing kotlin (jdk)...
 echo on
 
 if "%SKIP_JDK_INSTALL%"=="true" ( goto :skip )

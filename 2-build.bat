@@ -1,7 +1,7 @@
 call 0-settings.bat
 
 echo off
-call lib :color Building java client...
+call lib :color Building kotlin client...
 echo on
 
 call lib :print_color %MVNW% -v
