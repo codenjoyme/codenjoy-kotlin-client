@@ -21,18 +21,21 @@ eval_echo "[[ \"$INSTALL_LOCALLY\" == \"\" ]] && INSTALL_LOCALLY=true"
 eval_echo "[[ \"$INSTALL_LOCALLY\" == "true" ]] && export JAVA_HOME="
 eval_echo "[[ \"$INSTALL_LOCALLY\" == "true" ]] && export MAVEN_HOME="
 
-eval_echo "[[ \"$JAVA_HOME\" == \"\" ]]  && export JAVA_HOME=$ROOT/.jdk"
-eval_echo "[[ \"$MAVEN_HOME\" == \"\" ]] && NO_MAVEN=true"
-eval_echo "[[ \"$NO_MAVEN\" == "true" ]] && export MAVEN_HOME=$ROOT/.mvn"
-eval_echo "[[ \"$NO_MAVEN\" == "true" ]] && export MAVEN_USER_HOME=$ROOT/.mvn"
-eval_echo "[[ \"$NO_MAVEN\" == "true" ]] && export MAVEN_OPTS=-Dmaven.repo.local=$MAVEN_HOME/repository"
+eval_echo "[[ \"$JAVA_HOME\" == \"\" ]]   && NO_JAVA=true"
+eval_echo "[[ \"$NO_JAVA\" == \"true\" ]] && export JAVA_HOME=$ROOT/.jdk"
+eval_echo "[[ \"$NO_JAVA\" == \"true\" ]] && export PATH=$JAVA_HOME/bin:$PATH"
+
+eval_echo "[[ \"$MAVEN_HOME\" == \"\" ]]  && NO_MAVEN=true"
+eval_echo "[[ \"$NO_MAVEN\" == "true" ]]  && export MAVEN_HOME=$ROOT/.mvn"
+eval_echo "[[ \"$NO_MAVEN\" == "true" ]]  && export MAVEN_USER_HOME=$MAVEN_HOME"
+eval_echo "[[ \"$NO_MAVEN\" == "true" ]]  && export MAVEN_OPTS=-Dmaven.repo.local=$MAVEN_HOME/repository"
 
 eval_echo "MVNW=$ROOT/mvnw"
 eval_echo "chmod +x $MVNW"
 eval_echo "export MVNW_VERBOSE=false"
 eval_echo "JAVA=$JAVA_HOME/bin/java"
-eval_echo "export PATH=\"$JAVA_HOME/bin:$PATH\""
 
+color $COLOR4 "PATH=$PATH"
 color $COLOR4 "JAVA_HOME=$JAVA_HOME"
 color $COLOR4 "MAVEN_HOME=$MAVEN_HOME"
 color $COLOR4 "MAVEN_OPTS=$MAVEN_OPTS"
@@ -43,4 +46,4 @@ echo
 eval_echo "ARCH_URL=https://builds.openlogic.com/downloadJDK/openlogic-openjdk/11.0.11%2B9/openlogic-openjdk-11.0.11%2B9-linux-x64.tar.gz"
 eval_echo "ARCH_FOLDER=openlogic-openjdk-11.0.11+9-linux-x64"
 
-eval_echo "JAVA_CLIENT_HOME=$ROOT"
+eval_echo "KOTLIN_CLIENT_HOME=$ROOT"
