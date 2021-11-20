@@ -1,11 +1,82 @@
 #!/usr/bin/env bash
 
-. 0-settings.sh
+# red 91
+# green 92
+# yellow 93
+# blue 94
+# pink 95
+# light blue 96
+# purple 97
+CL_HEADER=92
+CL_COMMAND=94
+CL_QUESTION=95
+CL_INFO=93
 
-color $COLOR1 "Installing docker..."
+eval_echo_color_output() {
+    command=$1
+    output=$($command)
+    color $CL_COMMAND "$command"
+    color $CL_INFO "$output"
+}
+
+color() {
+    color=$1
+    message=$2
+    echo "[${color}m$message[0m"
+}
+
+eval_echo() {
+    command=$1
+    eval_echo_color $CL_COMMAND "$command"
+}
+
+eval_echo_color() {
+    color=$1
+    command=$2
+    color $color "$command"
+    echo
+
+    eval $command
+}
+
+ask() {
+    ask_message $CL_QUESTION "Press any key to continue"
+}
+
+ask_result=""
+ask_message() {
+    color=$1
+    message=$2
+    color $color "$message"
+    read ask_result
+}
+
+sep() {
+    color $CL_COMMAND "---------------------------------------------------------------------------------------"
+}
+
+read_env() {
+    for entry in $(cat $ROOT/.env)
+    do
+        if [[ ! $entry == \#* ]]
+        then
+            export $entry
+            color $CL_INFO "$entry"
+        fi
+    done
+}
+
+color $CL_HEADER "Setup variables..."
 echo
 
-    ask_message $COLOR4 "There is a need to update the system and install docker. Should we install (y/n)?"
+    eval_echo "ROOT=$PWD"
+
+    read_env
+
+color $CL_HEADER "Installing docker..."
+echo
+
+    ask_message $CL_QUESTION "There is a need to update the system and install docker. Should we install (y/n)?"
     if [[ "$ask_result" == "y" ]]; then
         if [ "$EUID" -ne 0 ]; then
           color $COLOR5 "Please run as root"
@@ -32,15 +103,15 @@ echo
 
         eval_echo_color_output "docker -v"
     else
-        color $COLOR4 "Skipped"
+        color $CL_INFO "Skipped"
     fi
 
-color $COLOR1 "Building client..."
+color $CL_HEADER "Building client..."
 echo
 
     eval_echo "DOCKER_BUILDKIT=1 docker build -t client-server -f Dockerfile ./ --build-arg SERVER_URL=$BOARD_URL --build-arg GAME_TO_RUN=$GAME_TO_RUN"
 
-color $COLOR1 "Starting client..."
+color $CL_HEADER "Starting client..."
 echo
 
     eval_echo "docker container rm client-server --force"
