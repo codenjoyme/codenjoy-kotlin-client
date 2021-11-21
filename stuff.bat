@@ -79,5 +79,5 @@ call run :init_colors
     rem call run :eval_echo ‘%JAVA% -Dfile.encoding=UTF-8 -jar %ROOT%\client-exec.jar “%GAME_TO_RUN%“ “%SERVER_URL%“‘
 
     rem build & run (without jar)
-    call run :eval_echo ‘%MVNW% clean compile exec:java -Dfile.encoding=UTF-8 -Dexec.mainClass=com.codenjoy.dojo.JavaRunner -Dexec.args=“%GAME_TO_RUN% %SERVER_URL%“‘
+    call run :eval_echo ‘%MVNW% clean compile exec:java -Dfile.encoding=UTF-8 -Dexec.mainClass=com.codenjoy.dojo.KotlinRunner -Dexec.args=“%GAME_TO_RUN% %SERVER_URL%“‘
     goto :eof
