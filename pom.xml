@@ -6,7 +6,7 @@
 
     <groupId>com.codenjoy</groupId>
     <artifactId>client-kotlin</artifactId>
-    <version>1.1.1</version>
+    <version>1.1.2</version>
 
     <properties>
         <spring-boot-dependencies.version>2.1.18.RELEASE</spring-boot-dependencies.version>
