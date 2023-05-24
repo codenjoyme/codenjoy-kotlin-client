@@ -8,7 +8,7 @@ and enter a value in `com.codenjoy.dojo.KotlinRunner.URL`. \
 This is enough to connect and participate in the competition.
 
 # How to run it?
-To start a project from the console window, you must first perform build with Maven `mvn clean package -Pjar-with-dependencies`.
+To start a project from the console window, you must first perform build with Maven `mvn clean package assembly:single -Pjar-with-dependencies`.
 The entry point for starting a project is `com.codenjoy.dojo.KotlinRunner.main(args)`. \
 You can pass the game type and token connection to the server as command-line arguments.
 Game parameters passed by arguments at startup have a higher priority than those defined in the code.
